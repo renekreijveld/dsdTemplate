@@ -1,0 +1,75 @@
+/* FRONTEND LESS
+*********************************************/
+
+// Bootstrap
+@import "bootstrap/bootstrap.less";
+
+// Font Awesome
+@import "font-awesome/font-awesome.less";
+
+html {
+	font-size: 62.5%;
+}
+
+// Kleuren
+@rood: #dc0028;
+@grijs: #999999;
+@bodyachtergrond: #e0e0e0;
+@navbarbg: #ffffff;
+@headerbg: #ffffff;
+@sliderbg: #ffffff;
+@contentbg: #ffffff;
+@footerbg: #ffffff;
+@modulesbg: #ffffff;
+
+// Maten
+@headerhoogte: 150px;
+@menuhoogte: 28px;
+@sitebreedte: 1200px;
+
+// Scrollbar fix
+html {
+	overflow-y: scroll; /* scrollbar fix (prevent ugly left pull for lower content sites) */
+}
+
+body {
+	background-color: @bodyachtergrond;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1.4rem;
+	color: @grijs;
+}
+
+.container-fluid {
+	margin: 0 auto;
+	max-width: @sitebreedte;
+	background-color: #ffffff;
+}
+
+.navbar {
+	background-color: @navbarbg;
+	margin-bottom: 0;
+	border: 0 none;
+}
+.header {
+	height: @headerhoogte;
+	background-color: @headerbg;
+}
+
+.slider {
+	background-color: @sliderbg;
+}
+
+.content {
+	background-color: @contentbg;
+}
+
+.modules {
+	background-color: @modulesbg;
+}
+
+.footer {
+	background-color: @footerbg;
+}
+
+// RSFormPro
+@import "rsform.less";
