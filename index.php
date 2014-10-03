@@ -8,9 +8,6 @@
 	<jdoc:include type="modules" name="headstart" />
 	<jdoc:include type="head" />
 	<jdoc:include type="modules" name="headfinish" />
-	<?php if ($templateparams->get('dropdownHover') == 1) { ?>
-	<style type="text/css">.dropdown:hover .dropdown-menu {display:block;}</style>
-	<?php } ?>
 </head>
 
 <body class="<?php if ($frontpage) {echo 'frontpage';} else {echo 'next';} echo ' '.$menu_active->alias.' '.$pageclass; ?>" role="document">
@@ -60,6 +57,9 @@
 	</div>
 	<jdoc:include type="modules" name="debug" />
 	<jdoc:include type="modules" name="bodyfinish" />
+	<?php if ($templateparams->get('dropdownHover') == 1) { ?>
+	<script src="<?php echo $templateUrl.'/js/bootstrap.dropdown.hover.min.js';?>"></script>
+	<?php } ?>
 </body>
 
 </html>
