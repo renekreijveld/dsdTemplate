@@ -99,6 +99,11 @@
 					<option value="0">Statisch</option>
 				</field>
 
+				<field name="dropdownHover" type="radio" class="btn-group btn-group-yesno" default="1" label="Dropdown bij hover">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
 			</fieldset>
 
 			<fieldset name="indeling" label="Template indeling">
