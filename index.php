@@ -1,65 +1,53 @@
-<?php defined( '_JEXEC' ) or die; ?><!doctype html>
-
+<?php defined( '_JEXEC' ) or die; ?>
+<?php include_once JPATH_THEMES.'/'.$this->template.'/logic.php'; ?>
+<!doctype html>
 <html lang="<?php echo $this->language; ?>">
-
-<?php include_once JPATH_THEMES.'/'.$this->template.'/parameters.php'; ?>
-
 <head>
 	<jdoc:include type="modules" name="headstart" />
+	<link rel="stylesheet" href="<?php echo $templateUrl . '/cache/' . $css_file_name;?>" type="text/css" />
+	<script src="<?php echo $templateUrl;?>/js/site.min.js" type="text/javascript"></script>
 	<jdoc:include type="head" />
 	<jdoc:include type="modules" name="headfinish" />
+	<!-- Option: <?php echo $ualayout;?> -->
 </head>
-
-<body class="<?php if ($frontpage) {echo 'frontpage';} else {echo 'next';} echo ' '.$menu_active->alias.' '.$pageclass; ?>" role="document">
+<body class="<?php if ($frontpage) {echo 'frontpage';} else {echo 'next';} if ($pageclass) echo ' '.$pageclass; ?>" role="document">
+	<?php if($analytics): ?>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', '<?php echo $analytics;?>', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<?php endif; ?>
 	<jdoc:include type="modules" name="bodystart" />
-	<?php if ($templateparams->get('navbar') == 1) {
-		include JPATH_THEMES.'/'.$this->template.'/layouts/navbar.php';
-	} ?>
-	<div class="container<?php echo ($templateparams->get('fluidContainer') ? '-fluid' : ''); ?>">
-		<?php
-		// Part1
-		if ($templateparams->get('part1') != 'no') {
-			echo '<div class="row '.$templateparams->get('part1').'">';
-			include JPATH_THEMES.'/'.$this->template.'/layouts/'.$templateparams->get('part1').'.php';
-			echo '</div>';
-		}
-		// Part2
-		if ($templateparams->get('part2') != 'no') {
-			echo '<div class="row '.$templateparams->get('part2').'">';
-			include JPATH_THEMES.'/'.$this->template.'/layouts/'.$templateparams->get('part2').'.php';
-			echo '</div>';
-		}
-		// Part3
-		if ($templateparams->get('part3') != 'no') {
-			echo '<div class="row '.$templateparams->get('part3').'">';
-			include JPATH_THEMES.'/'.$this->template.'/layouts/'.$templateparams->get('part3').'.php';
-			echo '</div>';
-		}
-		// Part4
-		if ($templateparams->get('part4') != 'no') {
-			echo '<div class="row '.$templateparams->get('part4').'">';
-			include JPATH_THEMES.'/'.$this->template.'/layouts/'.$templateparams->get('part4').'.php';
-			echo '</div>';
-		}
-		// Part5
-		if ($templateparams->get('part5') != 'no') {
-			echo '<div class="row '.$templateparams->get('part5').'">';
-			include JPATH_THEMES.'/'.$this->template.'/layouts/'.$templateparams->get('part5').'.php';
-			echo '</div>';
-		}
-		// Part6
-		if ($templateparams->get('part6') != 'no') {
-			echo '<div class="row '.$templateparams->get('part6').'">';
-			include JPATH_THEMES.'/'.$this->template.'/layouts/'.$templateparams->get('part6').'.php';
-			echo '</div>';
-		}
-		?>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<jdoc:include type="modules" name="menu" />
+			</div>
+		</div>
+		<div class="row">
+			<?php if ($this->countModules('links') || $collapsable == 0) : ?>
+			<div class="col-md-3">
+				<jdoc:include type="modules" name="links" style="xhtml" />
+			</div>
+			<?php endif; ?>
+			<div class="<?php echo $spanContent; ?>">
+				<jdoc:include type="modules" name="contentstart" />
+				<jdoc:include type="message" />
+				<jdoc:include type="component" />
+				<jdoc:include type="modules" name="contentfinish" />
+			</div>
+			<?php if ($this->countModules('rechts') || $collapsable == 0) : ?>
+			<div class="col-md-3">
+				<jdoc:include type="modules" name="rechts" style="xhtml" />
+			</div>
+			<?php endif; ?>
+		</div>
 	</div>
 	<jdoc:include type="modules" name="debug" />
 	<jdoc:include type="modules" name="bodyfinish" />
-	<?php if ($templateparams->get('dropdownHover') == 1) { ?>
-	<script src="<?php echo $templateUrl.'/js/bootstrap.dropdown.hover.min.js';?>"></script>
-	<?php } ?>
 </body>
-
 </html>
