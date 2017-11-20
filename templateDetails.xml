@@ -58,13 +58,16 @@
 	<config>
 		<fields name="params">
 			<fieldset name="template" label="Template instellingen">
-				<field name="cssmode"  type="list"  default="phpless" label="CSS mode">
-					<option value="css">Codekit minified site.min.css</option>
-					<option value="codekit">Codekit site.css</option>
-					<option value="phpless">Intern gecompileerde site.min.css</option>
-				</field>
-				<field name="analytics" class="" type="text" default="" label="Analytics code" />
 				<field name="collapsable" type="radio" label="Collapsable gebruiken" class="btn-group btn-group-yesno" default="1">
+					<option value="1">Ja</option>
+					<option value="0">Nee</option>
+				</field>
+				<field name="fluid" type="radio" label="Fluid layout" class="btn-group btn-group-yesno" default="0">
+					<option value="1">Ja</option>
+					<option value="0">Nee</option>
+				</field>
+				<field name="sitewidth" class="" type="text" default="1170px" label="Site breedte (fluid)" />
+				<field name="debuginfo" type="radio" label="Debug info toevoegen" class="btn-group btn-group-yesno" default="0">
 					<option value="1">Ja</option>
 					<option value="0">Nee</option>
 				</field>
